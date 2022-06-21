@@ -1,0 +1,283 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    width: 100%;
+    height:100%;
+}
+
+header {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(#fdf382 0 20%,#fdf7fb 80% 100%);
+    box-shadow: 0 0 10px 2px #eed;
+}
+.app-title {
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.body-content {
+    width: 100%;
+    padding: 30px 20px;
+    height: calc(100% - 100px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.log-action-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.log-file-input {
+    display: none;
+}
+.log-file-label,
+.reset-btn,
+.prev-log,
+.next-log {
+    margin: 0 10px;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: cursive;
+    color: #333;
+    background-color:#fdf382;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 10px 0 #ababa3;
+    cursor: pointer;
+}
+.log-file-label:hover, 
+.reset-btn:hover,
+.prev-log:hover,
+.next-log:hover {
+    color: white;
+    background-color: #00b578;
+}
+.reset-btn[disabled],
+.prev-log[disabled],
+.next-log[disabled] {
+    color: #aaa;
+    background-color: #eeeeee;
+    cursor: not-allowed;
+}
+.log-pagination {
+    float: right;
+}
+.log-page {
+    width: 60px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 30px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 0 #ababa3;
+    text-align: center;
+}
+.log-page:hover,
+.log-page:focus {
+    outline: none;
+}
+.log-page[disabled] {
+    color: #aaa;
+    background-color: #eeeeee;
+    cursor: not-allowed;
+}
+.log-info {
+    float: right;
+    margin: -4px 8px;
+    padding: 8px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    border: 3px dashed #5db6ec;
+    border-radius: 8px;
+}
+.log-info i {
+    color: #de5e00;
+    margin: 0 10px 0 5px;
+    font-family: monospace;
+    font-style: unset;
+}
+.log-table {
+    display:block;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    box-shadow: 0 0 10px 0 #ababab;
+}
+.log-table::-webkit-scrollbar {
+    height: 5px;
+    position: absolute;
+}  
+.log-table::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px #eee;
+}
+.log-table::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    outline: none;
+}
+.log-table thead {
+    width: max-content;
+    display: block;
+    padding: 5px;
+    background-color: #eee;
+}
+.log-table thead th {
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    text-align: left;
+}
+.log-table thead tr:nth-child(2) th {
+    padding: 5px 10px;
+}
+.log-table thead input {
+    line-height: 22px;
+    padding: 5px;
+    border: none;
+
+}
+.log-table tbody {
+    display: flex;
+    padding: 5px;
+    flex-direction: column;
+    height: calc(100% - 80px);
+    width: max-content;
+    min-width: 100%;
+    overflow-y: auto;
+}
+.log-table tbody::-webkit-scrollbar {
+    width:5px;
+}  
+.log-table tbody::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px #eee;
+}
+.log-table tbody::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    outline: none;
+}
+.log-table tr {
+    display: block;
+    width: 100%;
+}
+.log-table tbody tr {
+    display: flex;
+}
+.log-table tbody td {
+    height: 100%;
+    max-height: 60px;
+    border: 1px solid #eee;
+    margin: 2px;
+    padding: 5px 10px;
+    overflow-y: auto;
+    overflow-wrap: break-word;
+}
+.log-table tbody td::-webkit-scrollbar {
+    width:5px;
+}  
+.log-table tbody td::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px #eee;
+}
+.log-table tbody td::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    outline: none;
+}
+
+.log-table thead th:nth-child(1),
+.log-table thead th:nth-child(1) input,
+.log-table tbody td:nth-child(1) {
+    display: inline-block;
+    min-width: 300px;
+    max-width: 300px;
+}
+.log-table thead th:nth-child(2),
+.log-table thead th:nth-child(2) input,
+.log-table tbody td:nth-child(2) {
+    display: inline-block;
+    min-width: 300px;
+    max-width: 300px;
+}
+.log-table thead th:nth-child(3),
+.log-table thead th:nth-child(3) input,
+.log-table tbody td:nth-child(3) {
+    display: inline-block;
+    min-width: 120px;
+    max-width: 120px;
+}
+.log-table thead th:nth-child(4),
+.log-table thead th:nth-child(4) input,
+.log-table tbody td:nth-child(4) {
+    display: inline-block;
+    min-width: 110px;
+    max-width: 110px;
+}
+.log-table thead th:nth-child(5),
+.log-table thead th:nth-child(5) input,
+.log-table tbody td:nth-child(5) {
+    display: inline-block;
+    min-width: 120px;
+    max-width: 120px;
+}
+.log-table thead th:nth-child(6),
+.log-table thead th:nth-child(6) input,
+.log-table tbody td:nth-child(6) {
+    display: inline-block;
+    min-width: 150px;
+    max-width: 150px;
+}
+.log-table thead th:nth-child(7),
+.log-table thead th:nth-child(7) input,
+.log-table tbody td:nth-child(7) {
+    display: inline-block;
+    min-width: 160px;
+    max-width: 160px;
+}
+.log-table thead th:nth-child(8),
+.log-table thead th:nth-child(8) input,
+.log-table tbody td:nth-child(8) {
+    display: inline-block;
+    min-width: 100px;
+    max-width: 100px;
+}
+.log-table thead th:nth-child(9),
+.log-table thead th:nth-child(9) input,
+.log-table tbody td:nth-child(9) {
+    display: inline-block;
+    min-width: 120px;
+    max-width: 120px;
+}
+.log-table thead th:nth-child(10),
+.log-table thead th:nth-child(10) input,
+.log-table tbody td:nth-child(10) {
+    display: inline-block;
+    min-width: 200px;
+    max-width: 200px;
+}
+
+.log-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.log-loader img {
+    height: 80px;
+    border-radius: 0px 0px 20px 20px;
+    box-shadow: 0px 20px 15px -15px #c1c1c1;
+}
+.load-percent {
+    display: block;
+    padding-top: 20px;
+    text-align:center;
+    font-size: 28px;
+    font-weight: 600;
+    font-family: sans-serif;
+    line-height: 30px;
+}

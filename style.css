@@ -25,7 +25,7 @@ header {
 .body-content {
     width: 100%;
     padding: 30px 20px;
-    height: calc(100% - 100px);
+    height: calc(100% - 130px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -280,4 +280,16 @@ header {
     font-weight: 600;
     font-family: sans-serif;
     line-height: 30px;
+}
+
+footer {
+    background-color:#555;
+    height: 30px;;
+}
+.copyright {
+    color: #ffffff;
+    font-size: 14px;;
+    font-family: cursive;
+    line-height: 30px;
+    text-align: center;
 }

@@ -112,9 +112,10 @@ window.onload = function() {
 // File reader
 function readFile(file) {
     const reader = new FileReader();
+    const seperatar = file.type == 'text/csv' ? "\n\r\n" : "\n\n";
     reader.addEventListener('load', (event) => {
         const result = event.target.result;
-        allLogs = result.split("\n\n");
+        allLogs = result.split(seperatar);
         allLogs.forEach(log => {
             let logColumns = log.split('^');
             if(logColumns.length == 10) {
